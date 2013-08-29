@@ -1,7 +1,4 @@
-Meteor seed
-===========
+airpetnet
+=========
 
-This is a seed for new Meteor apps.
-
-It sets up a minimal directory structure according to the unofficial Meteor FAQ,
-and adds bootstrap.
+Find your next pet sitter online
