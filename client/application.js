@@ -4,3 +4,5 @@
 
 // This subscription populates Meteor.users with all users published by the server
 Meteor.subscribe('users');
+Meteor.subscribe('sitters');
+Meteor.subscribe('owners');

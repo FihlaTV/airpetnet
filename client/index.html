@@ -1,23 +1,88 @@
 <head>
-  <title>meteor-seed</title>
+  <title>Crunchy Kibble</title>
 </head>
 
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <a class="brand" href="#">Meteor seed</a>
+        <a class="brand" href="#">Crunchy Kibble</a>
         <div class="pull-right navbar-text">
-          Login not implemented yet
+          {{loginButtons}}
         </div>
       </div>
     </div>
   </div>
 
-  {{> hello}}
+  {{#if currentUser}}
+    {{> userView}}
+  {{else}}
+    {{> splash}}
+  {{/if}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
+<template name="splash">
+  <div id="splash-carousel" class="carousel slide">
+    <!-- carousel indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#splash-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#splash-carousel" data-slide-to="1"></li>
+      <li data-target="#splash-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- carousel content -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="http://placekitten.com/1200/600">
+        <div class="carousel-caption">
+          <div>
+            <h1>Find a pet sitter near you</h1>
+            <p>Our network of trustworthy pet lovers is ready to 
+               care for your pet when you can't.</p>
+            <br>
+            <button class="btn btn-primary">Learn more</button>
+           </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://placekitten.com/1200/601">
+        <div class="carousel-caption">
+          <div>
+          <h1>Love animals? Sign up now!</h1>
+          <p>
+            Would you like to make a little money while caring for
+            animals?  We're accepting applications for trustworthy
+            pet sitters. Only animal lovers need apply!
+          </p>
+          <br>
+          <button class="btn btn-primary">Apply now</button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://placekitten.com/1200/602">
+        <div class="carousel-caption">
+          <div>
+          <h1>Borrow a pet</h1>
+          <p>
+            Do you love pets but can't make a lifelong commitment?
+            We can help you find a pet to love for a fixed term, no
+            strings attached.
+          </p>
+          <br>
+          <button class="btn btn-primary">Find out more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- carousel nav buttons -->
+    <a class="carousel-control left" href="#splash-carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#splash-carousel" data-slide="next">&rsaquo;</a>
+
+  </div>
+</template>
+
+<template name="userView">
+  <h1>Welcome {{currentUser.name}}!</h1>
 </template>
